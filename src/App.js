@@ -10,8 +10,10 @@ import Map from "@components/Map/Map";
 
 function App() {
   const [places, setPlaces] = useState([]);
+  const [childClicked, setChildClicked] = useState(null);
+
   const [coordinates, setCoordinates] = useState({})
-  const [bounds, setBounds] = useState(null)
+  const [bounds, setBounds] = useState({})
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({ coords: { lattitude, longitute } }) => {
@@ -31,12 +33,17 @@ function App() {
       <CssBaseline />
       <Header />
       <Grid container spacing={3} style={{ width: '100%' }}>
-        <Grid item xs={12} md={4}><List /></Grid>
+        <Grid item xs={12} md={4}>
+          <List places={places}
+            childClicked={childClicked} />
+        </Grid>
         <Grid item xs={12} md={8}>
           <Map
             setCoordinates={setCoordinates}
             setBounds={setBounds}
             cordinates={coordinates}
+            places={places}
+            setChildClicked={setChildClicked}
           />
         </Grid>
       </Grid>

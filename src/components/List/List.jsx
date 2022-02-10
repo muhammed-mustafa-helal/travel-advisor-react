@@ -13,19 +13,7 @@ import {
 import PlaceDetails from "@components/PlaceDetails/PlaceDetails";
 import useStyles from "./styles";
 
-const places = [
-  { name: "Cool Place" },
-  { name: "Best Beer" },
-  { name: "Best Steak" },
-  { name: "Cool Place" },
-  { name: "Best Beer" },
-  { name: "Best Steak" },
-  { name: "Cool Place" },
-  { name: "Best Beer" },
-  { name: "Best Steak" },
-];
-
-function List() {
+function List({ places, childClicked }) {
   const classes = useStyles();
   const [type, setType] = useState("restaurants");
   const [rating, setRating] = useState("");
