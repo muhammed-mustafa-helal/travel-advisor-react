@@ -13,7 +13,7 @@ import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import useStyles from "./styles";
 
-function List({
+const List = ({
   places,
   childClicked,
   isLoading,
@@ -21,7 +21,7 @@ function List({
   setType,
   rating,
   setRating,
-}) {
+}) => {
   const classes = useStyles();
   const [elRefs, setElRefs] = useState([]);
 
@@ -76,6 +76,6 @@ function List({
       )}
     </div>
   );
-}
+};
 
 export default List;
